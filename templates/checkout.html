@@ -1,0 +1,82 @@
+ 
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="mb-4"><i class="bi bi-credit-card text-primary"></i> Checkout</h1>
+    
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Billing Information</h5>
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Full Name *</label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address *</label>
+                            <input type="text" name="address" class="form-control" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text" name="city" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Country</label>
+                                <input type="text" name="country" class="form-control" value="United States">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Payment Method</label>
+                            <select name="payment_method" class="form-select">
+                                <option value="invoice">Invoice / Bank Transfer</option>
+                                <option value="credit_card">Credit Card</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Order Notes</label>
+                            <textarea name="notes" class="form-control" rows="2" placeholder="Special requests or instructions..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-check-circle"></i> Place Order
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Order Summary</h5>
+                    <hr>
+                    {% for item in cart_items %}
+                        <div class="d-flex justify-content-between small">
+                            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+                            <span>${{ "%.2f"|format(item.item_total) }}</span>
+                        </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="d-flex justify-content-between fs-5">
+                        <strong>Total:</strong>
+                        <strong class="text-primary">${{ "%.2f"|format(total) }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

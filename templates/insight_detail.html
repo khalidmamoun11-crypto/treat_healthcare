@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('insights') }}">Insights</a></li>
+            <li class="breadcrumb-item active">{{ article.title }}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <img src="{{ article.image_url }}" class="img-fluid rounded-4 shadow-sm mb-4" alt="{{ article.title }}">
+            
+            <h1 class="display-5 fw-bold">{{ article.title }}</h1>
+            <div class="mb-3">
+                <span class="badge bg-primary">{{ article.category }}</span>
+                <span class="text-muted ms-3">
+                    <i class="bi bi-person"></i> {{ article.author }}
+                </span>
+                <span class="text-muted ms-3">
+                    <i class="bi bi-calendar"></i> {{ article.created_at.strftime('%B %d, %Y') }}
+                </span>
+            </div>
+            
+            <hr>
+            
+            <div class="fs-5" style="line-height: 1.8;">
+                {{ article.content|safe }}
+            </div>
+            
+            <hr class="my-5">
+            
+            <div class="d-flex justify-content-between">
+                <a href="{{ url_for('insights') }}" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Back to Insights
+                </a>
+                <a href="{{ url_for('plans_catalog') }}" class="btn btn-primary">
+                    Browse Plans →
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

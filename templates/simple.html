@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treat International Healthcare Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #0a2540 !important;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0a2540 0%, #1d4e6f 100%);
+            color: white;
+            padding: 80px 0 60px;
+            margin-bottom: 0;
+        }
+        .hero-section h1 {
+            font-weight: 800;
+            font-size: 3rem;
+        }
+        .btn-primary {
+            background: #0a2540;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 35px;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background: #1d4e6f;
+            transform: translateY(-2px);
+        }
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: #0a2540;
+            color: #b0c4de;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        footer a {
+            color: #b0c4de;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-heart-pulse-fill text-primary me-2"></i>Treat International
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/plans">Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/insights">Insights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-white">Treat International Healthcare Solutions</h5>
+                    <p class="small">Advancing healthcare standards to save lives.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small">&copy; 2026 Treat International. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
